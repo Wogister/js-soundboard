@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Soundboard</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <div class="navbar button" id="toggleMode">Modus wechseln</div>
+ <div id="all">
+    <div id="1">
+      <div data-key="1" class="playbutton button">
+	    <p>1</p>
+      </div>
+	  <div class="editbutton button">
+	    <p>Editierbutton 1 (ohne Funktion)</p>
+	  </div>
+	</div>
+	
+	<div id="2">
+      <div data-key="2" class="playbutton button">
+        <p>2</p>
+      </div>
+	  <div class="editbutton button">
+	    <p>Editierbutton 2 (ohne Funktion)</p>
+	  </div>
+	</div>
+	
+	<div id="3">
+      <div data-key="3" class="playbutton button">
+        <p>3</p>
+      </div>
+	  <div class="editbutton button">
+	    <p>Editierbutton 3 (ohne Funktion)</p>
+	  </div>
+	</div>
+  </div>
+
+  
+  
+
+  <audio data-key="1" src="audio/boom.wav"></audio>
+  <audio data-key="2" src="audio/clap.wav"></audio>
+  <audio data-key="3" src="audio/hihat.wav"></audio>
+
+  <script>
+    document.getElementById("toggleMode").addEventListener('click', function() {
+	  //const selectPlaybuttons = document.getElementsByClassName('playbutton');
+	  const selectEditbuttons = document.getElementsByClassName('editbutton');
+	  for(let i = 0; i < selectEditbuttons.length; i++) {
+	    if (selectEditbuttons[i].style.display == "none") {
+		  selectEditbuttons[i].style.display = "block";
+		}
+		else {
+		  selectEditbuttons[i].style.display = "none";
+		}
+	  }
+	});	  
+  
+    const selectPlaybuttons = document.getElementsByClassName('playbutton');
+    for(let i = 0; i < selectPlaybuttons.length; i++) {
+      selectPlaybuttons[i].addEventListener('click', function(e) {  
+  
+    //document.getElementById("all").addEventListener('click', function(e) {
+      const target = e.target;
+	  const clickedItem = target.parentElement.id
+      const audio = document.querySelector(`audio[data-key="${clickedItem}"]`);
+      if (!audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      else {
+        audio.play();
+      }
+    });
+	};
+  </script>
+</body>
+</html>
