@@ -1,17 +1,7 @@
 window.onload = function () {
-  document.getElementById("toggleMode").addEventListener('click', function() {
-    //const selectPlaybuttons = document.getElementsByClassName('playbutton');
-    const selectEditbuttons = document.getElementsByClassName('editbutton');
-    for(let i = 0; i < selectEditbuttons.length; i++) {
-      if (selectEditbuttons[i].style.display == "none") {
-        selectEditbuttons[i].style.display = "block";
-      }
-      else {
-        selectEditbuttons[i].style.display = "none";
-      }
-    }
-  });	  
-
+  // Toggle between play and edit mode  
+  document.getElementById("toggleMode").addEventListener('click', changeMode());	  
+  // Have to rewrite without loop
   const selectPlaybuttons = document.getElementsByClassName('playbutton');
   for(let i = 0; i < selectPlaybuttons.length; i++) {
     selectPlaybuttons[i].addEventListener('click', function(e) {  
@@ -30,4 +20,19 @@ window.onload = function () {
       }
     });
   };
+}
+
+function changeMode() {
+  const element = document.getElementById('wrapper');
+  element.classList.toggle('playmode');
+}
+
+function readURI() {
+  const file = document.querySelector('input[type=file]').files[0];
+  const reader = new FileReader();
+
+  if (file) {
+    const URI = reader.readAsDataURL(file);
+    return URI;
+  }
 }
