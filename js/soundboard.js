@@ -1,30 +1,25 @@
 
 function playThis(e) {
   const clickedItem = e.target.getAttribute('name');
-  console.log(clickedItem);
   const audioNumber = clickedItem.slice(1,4);
   const audio = document.querySelector(`audio[id='${audioNumber}']`);
   const type = clickedItem.slice(0,1);
-  console.log(audioNumber);
-  console.log(type);
-  if (type == 'P') {
+  if (type == 'P' && audio.paused) {
 	  audio.play();
   }
-  else if (type == 'S') {
+  else if (type == 'S' && !audio.paused) {
 	  audio.pause();
+	  audio.currentTime = 0;
   }
 }
 
 window.onload = function() {
-  document.getElementById("window").addEventListener('click', playThis);
+  document.getElementById("window").addEventListener('click', playThis, false);
 }
 
 window.onerror = function(error) {
   console.log(error);
 }
-
-
-
 
 function sliderChange() {
 	console.log(this.value);
@@ -132,15 +127,3 @@ function readURL(input) {
 }
 
 
-//in playthis function
-	/*const id = element.parentNode.parentNode.getAttribute('name');
-	if (!document.getElementById(id).paused == false) {
-		document.getElementById(id).play();
-		element.firstChild.classList.remove('fa-play');
-		element.firstChild.classList.add('fa-pause');
-	}
-	else {
-		document.getElementById(id).pause();
-		element.firstChild.classList.add('fa-play');
-		element.firstChild.classList.remove('fa-pause');
-	}*/
