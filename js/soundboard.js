@@ -45,20 +45,20 @@ function loopThis(element) {
 	
 }
 
+/*
 function stopThis(element) {
 	var id = element.parentNode.parentNode.getAttribute('name');
 		document.getElementById(id).pause();
 		document.getElementById(id).currentTime=0;
 		document.getElementById(id).parentNode.classList.add('fa-play');
 		document.getElementById(id).parentNode.classList.remove('fa-pause');
-}
-
+} 
 function stopOne(element) {
 	var id = element.parentNode.parentNode.parentNode.getAttribute('name');
 		document.getElementById(id).currentTime=0;
 		element.classList.add('fa-play');
 		element.classList.remove('fa-pause');
-}
+}*/
 
 function setvolume(element){
 	var id = element.parentNode.parentNode.parentNode.getAttribute('name');

@@ -1,5 +1,23 @@
+<!DOCTYPE html>
+<!--<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    <!--We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
 
-<!doctype html>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>!-->
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -7,7 +25,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="css/template.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/soundboard.js"></script>
 </head>
 
@@ -31,45 +49,231 @@
                 <div class="infeld" name="1">
                     <div class="btn-group topgroup">
                         <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
-                        <button type="button" class="btn btn-secondary editthis hidden">
-                            <input type="file" onchange="readURL(this)">
-                        </button>
-                    </div>
-                    <div class="btn-group bottomgroup">
-                        <button name="PA01" type="button" class="btn btn-link playthis"><i name="1" class="fas fa-play fa-2x">
-                        <audio id="A01" class="audio" src="audio/boom.wav"></audio></i></button>
-                        <button name="SA01" type="button" class="btn btn-danger stopthis hidden"><i class="fas fa-stop fa-2x"></i></button>
-                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
                         <button type="button" class="btn btn-secondary volume hidden">
                         	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
                         </button>
                     </div>
-                    
+                    <div class="btn-group bottomgroup">
+                        <button name="PA01" type="button" class="btn btn-link playthis"><i class="fas fa-play fa-2x">
+                        <audio id="A01" class="audio" src="audio/boom.wav"></audio></i></button>
+                        <button name="SA01" type="button" class="btn btn-danger stopthis hidden"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div> 
+                </div>
+            </div>
+            <div class="feld">
+                <div class="infeld" name="2">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button name="PA02" type="button" class="btn btn-link playthis"><i class="fas fa-play fa-2x">
+                        <audio id="A02" class="audio" src="audio/clap.wav"></audio></i></button>
+                        <button name="SA02" type="button" class="btn btn-danger stopthis hidden"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>              
+                </div>
+            </div>
+            <div class="feld">
+                <div class="infeld" name="3">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="3" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>                   
+                </div>
+            </div>
+            <div class="feld">
+                <div class="infeld" name="4">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="4" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>    
                 </div>
             </div>
         </div>
         <div class="spalte spalte2">        	
             <div class="feld">
-                <div class="infeld" name="2">
+                <div class="infeld" name="5">
                     <div class="btn-group topgroup">
-                        <button type="button" class="btn btn-link title">TITEL</button>
-                        <button type="button" class="btn btn-secondary editthis hidden"><i class="fas fa-pen-square fa-2x"></i></button>
-                    </div>
-                    <div class="btn-group bottomgroup">
-                        <button name="PB01" type="button" class="btn btn-link playthis"><i name="2" class="fas fa-play fa-2x">
-                        <audio id="B01" class="audio" src="audio/clap.wav" onended="stopOne(this.parentNode);"></audio></i></button>
-                        <button name="SB01" type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
-                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
                         <button type="button" class="btn btn-secondary volume hidden">
                         	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
                         </button>
                     </div>
-                    
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="5" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="feld">
+                <div class="infeld" name="6">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="6" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="feld">
+                <div class="infeld" name="7">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="7" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="feld">
+                <div class="infeld" name="8">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="8" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="spalte spalte3">
-        
+            <div class="feld">
+                <div class="infeld" name="9">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="9" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div><div class="feld">
+                <div class="infeld" name="10">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="10" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div><div class="feld">
+                <div class="infeld" name="11">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="11" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div><div class="feld">
+                <div class="infeld" name="12">
+                    <div class="btn-group topgroup">
+                        <button type="button" class="btn btn-link title"><input type="text" id="text"></button>
+                        <button type="button" class="btn btn-secondary volume hidden">
+                        	<input type="range" min="0" max="100" step="1" value="100" class="slider" id="myRange" oninput="setvolume(this)">
+                        </button>
+                    </div>
+                    <div class="btn-group bottomgroup">
+                        <button type="button" class="btn btn-link playthis" onclick="playThis(this)"><i class="fas fa-play fa-2x">
+                        <audio id="12" class="audio" src="audio/cartoon005.wav" onended="stopOne(this.parentNode);"></audio></i></button>
+                        <button type="button" class="btn btn-danger stopthis hidden" onclick="stopThis(this)"><i class="fas fa-stop fa-2x"></i></button>
+                        <button type="button" class="btn btn-info loopthis hidden" onclick="loopThis(this)"><i class="fas fa-retweet fa-2x"></i></button>
+                        <button type="button" class="btn btn-secondary editthis hidden">
+                            <input type="file" onchange="readURL(this)">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -78,3 +282,4 @@
 
 </body>
 </html>
+

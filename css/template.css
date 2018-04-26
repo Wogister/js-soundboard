@@ -66,9 +66,15 @@ html, body {
 }
 
 .feld {
-	margin-bottom: 10px;
-	height: 160px;
-	padding: 20px;
+	margin-top: 15px;
+	height: 240px;
+	padding: 0px 20px;
+}
+
+.playmode .feld {
+    margin-top: 15px;
+    height: 120px;
+    padding: 0px 20px;
 }
 
 .infeld {
@@ -92,18 +98,16 @@ html, body {
 	background-color:#138496;
 }
 
-.topgroup {
+.topgroup, .middlegroup, .bottomgroup {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: space-between;
 }
 
-.bottomgroup {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: space-between;
+.topgroup {
+    align-items: stretch;
+    flex-direction: column;
 }
 
 .btn {
@@ -119,7 +123,22 @@ html, body {
 }
 
 .feld button {
-	width: 100%;	
+	width: 100%;
+    height: 100%;
+}
+
+.feld .title input {
+    text-align: center;
+    background: rgba(255,255,255,0.7);
+    border: 0px solid #fff;
+}
+
+.playmode .feld .title input {
+    text-align: center;
+    background: rgba(255,255,255,0);
+    color: rgba(255,255,255,1);
+    border: 0px solid #fff;
+    pointer-events:none;
 }
 
 .slidecontainer {
