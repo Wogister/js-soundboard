@@ -1,12 +1,174 @@
-.button {
-	height: 100px;
-	width: 200px;
-	color: white;
-	background-color: red;
-	margin: 10px;
-	text-align: center;
+@charset "utf-8";
+
+* {
+	box-sizing: border-box;
+	transition: all ease 0.2;
 }
 
-.playmode {
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;	
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+#header {
+	z-index: 2;
+	position: absolute;
+	display: block;
+	height: 80px;
+	padding: 5px;
+	background-color: #DDD;
+	width: 100%;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.header-left {
+	float: left;
+}
+
+.header-right {
+	float: right;
+}
+
+#header button {
+	width: 60px;
+	height: 60px;
+	margin: 5px;	
+}
+
+#window {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding-top: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+
+.spalte {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: stretch;
+}
+
+.feld {
+	margin-bottom: 10px;
+	height: 160px;
+	padding: 20px;
+}
+
+.infeld {
+	height: 100%;
+	background-color:#28a745;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	border-radius: 10px;
+}
+
+.infeld:hover {
+	background-color:#218838;
+}
+
+.infeld.looped {
+	background-color:#17a2b8;
+}
+
+.infeld.looped:hover {
+	background-color:#138496;
+}
+
+.topgroup {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.bottomgroup {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn {
+    overflow: hidden;
+}
+
+.btn-link {
+	color: rgba(255,255,255,1);	
+}
+.btn-link:hover {
+	color: rgba(255,255,255,1);
+	background: rgba(0,0,0,0.1);	
+}
+
+.feld button {
+	width: 100%;	
+}
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;   
+    background: rgba(255,255,255,0.5);
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: rgba(255,255,255,1);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.playmode .hidden {
 	display: none;
+	visibility: hidden;
+	opacity: 0;	
+}
+
+.hidden2 {
+	display: none;
+	visibility: hidden;
+	opacity: 0;	
+}
+
+.playmode .hidden2 {
+	display: block;
+	visibility: visible;
+	opacity: 1;	
 }
