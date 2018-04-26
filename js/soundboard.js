@@ -1,3 +1,18 @@
+function changeMode() {
+  const element = document.getElementById('wrapper');
+  element.classList.toggle('playmode');
+}
+
+function readURI() {
+  const file = document.querySelector('input[type=file]').files[0];
+  const reader = new FileReader();
+
+  if (file) {
+    const URI = reader.readAsDataURL(file);
+    return URI;
+  }
+}
+
 window.onload = function () {
   // Toggle between play and edit mode  
   document.getElementById("toggleMode").addEventListener('click', changeMode());	  
@@ -22,17 +37,5 @@ window.onload = function () {
   };
 }
 
-function changeMode() {
-  const element = document.getElementById('wrapper');
-  element.classList.toggle('playmode');
-}
 
-function readURI() {
-  const file = document.querySelector('input[type=file]').files[0];
-  const reader = new FileReader();
 
-  if (file) {
-    const URI = reader.readAsDataURL(file);
-    return URI;
-  }
-}
